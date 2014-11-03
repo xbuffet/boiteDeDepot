@@ -1,11 +1,11 @@
 public class Employe {
 	private String nom;
 	private int anciennete;
-	private String grade;
-	public Employe(String unNom, int uneAnciennete, String unGrade){
+	private Grade leGrade;
+	public Employe(String unNom, int uneAnciennete, Grade unGrade){
 		this.nom = unNom;
 		this.anciennete = uneAnciennete;
-		this.grade = unGrade;
+		this.leGrade = unGrade;
 	}
 	public String getNom(){
 		return this.nom;
@@ -13,18 +13,10 @@ public class Employe {
 	public int getAnciennete(){
 		return this.anciennete;
 	}
-	public String getGrade(){
-		return this.grade;
+	public Grade getSonGrade(){
+		return this.leGrade;
 	}
-	public int salaireMensuel(){
-		int salaire;
-		salaire = 0;
-		if (this.grade.equals("apprenti"))
-			salaire = 1000;
-		else if(this.grade.equals("technicien"))
-			salaire = 1800;
-		else if(this.grade.equals("cadre"))
-			salaire = 2800;
-		return salaire + 50*this.anciennete;
+	public double salaireMensuel(){
+		return this.leGrade.getSalaire() + 50*this.anciennete;
 	}
 }
